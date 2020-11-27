@@ -9,12 +9,10 @@ public class Web : MonoBehaviour
     {
         // A correct website page.
         //StartCoroutine(GetDate("https://www.example.com"));
-        StartCoroutine(GetUsers("https://www.example.com"));
-        StartCoroutine(Login("testuser","123456"));
-
-        // A non-existing page.
-        //StartCoroutine(GetDate("https://error.html"));
-        //StartCoroutine(GetUsers("https://error.html"));
+        //StartCoroutine(GetUsers("https://www.example.com"));
+        //StartCoroutine(Login("testuser3","123456"));
+        //StartCoroutine(RegisterUser("testuser3","123456"));
+        
     }
 
     IEnumerator GetDate(string uri)
@@ -59,13 +57,34 @@ public class Web : MonoBehaviour
         }
     }
 
-    IEnumerator Login(string userName, string password)
+    public IEnumerator Login(string userName, string password)
     {
         WWWForm form = new WWWForm();
         form.AddField("loginUser", userName);
         form.AddField("loginPass", password);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/Aprendo-a-Leer/login.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/Aprendo-a-Leer/Login.php", form))
+        {
+            yield return www.SendWebRequest();                        
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
+    }
+
+    public IEnumerator RegisterUser(string userName, string password)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("loginUser", userName);
+        form.AddField("loginPass", password);
+
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/Aprendo-a-Leer/RegisterUser.php", form))
         {
             yield return www.SendWebRequest();                        
 
