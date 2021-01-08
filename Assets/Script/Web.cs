@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class Web : MonoBehaviour
 {
+    public Text MessageTextLogin;
+    public Text MessageTextRegister;
+    [SerializeField] private GameObject MenuLevels       = null;
+    [SerializeField] private GameObject MenuLogin        = null;
     void Start()
     {
         // A correct website page.
@@ -69,11 +74,18 @@ public class Web : MonoBehaviour
 
             if (www.isNetworkError || www.isHttpError)
             {
-                Debug.Log(www.error);
+                //Debug.Log(www.error);
+                MessageTextLogin.text = www.error;
             }
             else
             {
-                Debug.Log(www.downloadHandler.text);
+                //Debug.Log(www.downloadHandler.text);
+                MessageTextLogin.text = www.downloadHandler.text;
+                if (MessageTextLogin.text == "Inicio de sesión exitoso."){
+                    MessageTextLogin.text = "";                    
+                    MenuLevels.SetActive(true);
+                    MenuLogin.SetActive(false);
+                }
             }
         }
     }
@@ -90,11 +102,13 @@ public class Web : MonoBehaviour
 
             if (www.isNetworkError || www.isHttpError)
             {
-                Debug.Log(www.error);
+                //Debug.Log(www.error);
+                MessageTextRegister.text = www.error;                
             }
             else
             {
-                Debug.Log(www.downloadHandler.text);
+                //Debug.Log(www.downloadHandler.text);
+                MessageTextRegister.text = www.downloadHandler.text;
             }
         }
     }

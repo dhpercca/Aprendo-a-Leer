@@ -7,15 +7,15 @@ public class Login : MonoBehaviour
 {
     public InputField UsernameInput;
     public InputField PasswordInput;
-    public Button LoginButton;
-    public Text MessageText;
+    public Button LoginButton;    
 
     // Start is called before the first frame update
     void Start()
-    {
+    {        
        LoginButton.onClick.AddListener(() => {           
-           StartCoroutine(Main.Instance.Web.Login(UsernameInput.text, PasswordInput.text));
-           //MessageText = 
+           StartCoroutine(Main.Instance.Web.Login(UsernameInput.text, PasswordInput.text)); 
+           UsernameInput.text = "";
+           PasswordInput.text = "";               
        });
     }
 }
