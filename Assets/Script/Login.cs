@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class Login : MonoBehaviour
 {
-    public InputField UsernameInput;
-    public InputField PasswordInput;
-    public Button LoginButton;    
+    public InputField userNameInput;
+    public InputField passwordInput;
+    public Button loginButton;    
 
     // Start is called before the first frame update
     void Start()
     {        
-       LoginButton.onClick.AddListener(() => {           
-           StartCoroutine(Main.Instance.Web.Login(UsernameInput.text, PasswordInput.text)); 
-           UsernameInput.text = "";
-           PasswordInput.text = "";               
+       loginButton.onClick.AddListener(() => {           
+           StartCoroutine(Main.Instance.Web.Login(userNameInput.text, passwordInput.text)); 
+           userNameInput.text = "";
+           passwordInput.text = "";               
        });
     }
 }
