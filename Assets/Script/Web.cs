@@ -22,7 +22,7 @@ public class Web : MonoBehaviour
 
     IEnumerator GetDate(string uri)
     {
-        using (UnityWebRequest webRequest = UnityWebRequest.Get("http://localhost/Aprendo-a-Leer/GetDate.php"))
+        using (UnityWebRequest webRequest = UnityWebRequest.Get("http://192.168.10.37/Aprendo-a-Leer/GetDate.php"))
         {
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
@@ -43,7 +43,7 @@ public class Web : MonoBehaviour
 
     IEnumerator GetUsers(string uri)
     {
-        using (UnityWebRequest webRequest = UnityWebRequest.Get("http://localhost/Aprendo-a-Leer/GetUsers.php"))
+        using (UnityWebRequest webRequest = UnityWebRequest.Get("http://192.168.10.37/Aprendo-a-Leer/GetUsers.php"))
         {
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
@@ -68,7 +68,7 @@ public class Web : MonoBehaviour
         form.AddField("loginUser", userName);
         form.AddField("loginPass", password);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/Aprendo-a-Leer/Login.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("http://192.168.10.37/Aprendo-a-Leer/Login.php", form))
         {
             yield return www.SendWebRequest();                        
 

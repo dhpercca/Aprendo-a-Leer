@@ -8,6 +8,8 @@ public class SceneManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject Canvas      = null;
+    [SerializeField] private GameObject presentation      = null;
+    [SerializeField] private GameObject backgroundStart      = null;
     [SerializeField] private GameObject RegisterUser      = null;
     public Text MessageTextRegister;
     public InputField UsernameInputRegister;
@@ -22,7 +24,19 @@ public class SceneManager : MonoBehaviour
     [SerializeField] private GameObject CanvasLevel3      = null;
     [SerializeField] private GameObject CanvasLevel4      = null;
     private GameObject LinesToDestroy;
+    int aleatorio;
+    public GameObject[] objectsToInstantiate;
+    [SerializeField] private GameObject winText;
+    [SerializeField] private GameObject ContinueButton;
     
+    void Start()
+    {
+         Invoke("changeImage", 2);             
+    }
+    public void changeImage(){
+        presentation.SetActive(false);
+        backgroundStart.SetActive(true);
+    }
     public void ShowLogin(){
         RegisterUser.SetActive(false);
         Login.SetActive(true);
@@ -46,7 +60,15 @@ public class SceneManager : MonoBehaviour
 
     public void ShowCanvasLevel1(){        
         Canvas.SetActive(false);        
-        CanvasLevel1.SetActive(true);
+        CanvasLevel1.SetActive(true);        
+        /*for(int i = 0; i < objectsToInstantiate.Length; i++){            
+            objectsToInstantiate[i].SetActive(false);
+            winText.SetActive(false);
+            ContinueButton.SetActive(false);            
+        }*/
+        aleatorio = Random.Range(0, objectsToInstantiate.Length);
+        //Debug.Log(aleatorio);        
+        objectsToInstantiate[aleatorio].SetActive(true);           
     }
 
     public void ShowCanvasLevel2(){
