@@ -10,6 +10,7 @@ public class Web : MonoBehaviour
     public Text MessageTextRegister;
     [SerializeField] private GameObject MenuLevels       = null;
     [SerializeField] private GameObject MenuLogin        = null;
+    public GameObject levelsInstructionSound;
     void Start()
     {
         // A correct website page.
@@ -85,6 +86,7 @@ public class Web : MonoBehaviour
                     MessageTextLogin.text = "";                    
                     MenuLevels.SetActive(true);
                     MenuLogin.SetActive(false);
+                    Instantiate(levelsInstructionSound);
                 }
             }
         }
@@ -96,7 +98,7 @@ public class Web : MonoBehaviour
         form.AddField("loginUser", userName);
         form.AddField("loginPass", password);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/Aprendo-a-Leer/RegisterUser.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("http://192.168.10.37/Aprendo-a-Leer/RegisterUser.php", form))
         {
             yield return www.SendWebRequest();                        
 

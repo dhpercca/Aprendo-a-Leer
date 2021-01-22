@@ -4,41 +4,56 @@ using UnityEngine;
 
 public class MoveObject : MonoBehaviour 
 {        
-    //private Vector2 endPosition;
-    //[SerializeField] private GameObject letraA = null;       
-    public static MoveObject inst;     
-    //public static void move(bool locked, float deltaX, float deltaY, Transform letraAPlace, Vector2 initialPosition, Touch touch, Vector2 touchPos, Collider2D collider_2D, Vector2 position1)
-    public static void move()
+    [SerializeField] private Transform letraPlace;
+    private Vector2 initialPosition;
+    private float deltaX, deltaY;
+    //public static bool locked;
+    public static bool[] locked = new bool[35];
+    int l = 0; 
+    public Collider2D collider_2D; 
+    public GameObject dropSound;
+    
+    void Start()
     {            
-        //Debug.Log("hola");
-        /*switch(touch.phase)
-        {
-            case TouchPhase.Began:
-                if(collider_2D==Physics2D.OverlapPoint(touchPos))
-                {
-                    deltaX = touchPos.x - position1.x;
-                    deltaY = touchPos.y - position1.y; 
-                }
-                break;
-
-            case TouchPhase.Moved:
-                if(collider_2D == Physics2D.OverlapPoint(touchPos))
-                    return endPosition.transform.position = new Vector2(touchPos.x - deltaX, touchPos.y -deltaY);
-                break;
-
-            case TouchPhase.Ended:
-                if(Mathf.Abs(position1.x - letraAPlace.position.x) <= 0.5f && 
-                    Mathf.Abs(position1.y - letraAPlace.position.y) <= 0.5f)
-                {
-                    locked =true;
-                    return endPosition.transform.position = new Vector2(letraAPlace.position.x, letraAPlace.position.y);
-                    
-                } 
-                else
-                    {
-                        return endPosition.transform.position = new Vector2(initialPosition.x, initialPosition.y);
-                    }
-                //break;
-        }*/
+        initialPosition = transform.position;        
     } 
+    void Update()
+    {                                        
+        if(Input.touchCount > 0 && !locked[l])
+        {            
+            Touch touch = Input.GetTouch(0);
+            Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);                        
+            Vector2 position1 = transform.position;
+            switch(touch.phase)
+            {
+                case TouchPhase.Began:
+                    if(collider_2D==Physics2D.OverlapPoint(touchPos))
+                    {
+                       deltaX = touchPos.x - position1.x;
+                       deltaY = touchPos.y - position1.y; 
+                    }
+                    break;
+
+                case TouchPhase.Moved:
+                    if(collider_2D == Physics2D.OverlapPoint(touchPos))
+                        transform.position = new Vector2(touchPos.x - deltaX, touchPos.y -deltaY);
+                    break;
+
+                case TouchPhase.Ended:
+                    if(Mathf.Abs(position1.x - letraPlace.position.x) <= 0.5f && 
+                       Mathf.Abs(position1.y - letraPlace.position.y) <= 0.5f)
+                    {
+                        transform.position = new Vector2(letraPlace.position.x, letraPlace.position.y);
+                        Instantiate(dropSound);
+                        locked[l] = false;
+                        l++;                        
+                    } 
+                    else
+                        {
+                            transform.position = new Vector2(initialPosition.x, initialPosition.y);
+                        }
+                    break;
+            }
+        }    
+    }
 }

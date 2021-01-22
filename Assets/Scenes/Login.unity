@@ -1112,7 +1112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &53550414
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13020,12 +13020,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 726210112}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435341f4ac2e4f545bcf624bdce9d07b, type: 3}
+  m_Script: {fileID: 11500000, guid: a735a4d77b7e67a4eb1d2bbf610a360e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  letraAPlace: {fileID: 1046934082}
+  letraPlace: {fileID: 1046934082}
   collider_2D: {fileID: 726210115}
-  dropSound: {fileID: 5527506949380447672, guid: 3044ad2a29e0acb4aa3e45fcec15b9d9, type: 3}
+  dropSound: {fileID: 8455345749023597261, guid: 348cecb134f466d4a931cfba8a0d44e1, type: 3}
 --- !u!61 &726210115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17073,10 +17073,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 920373136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75226c4ef6a02fc4c94756a1b2eda40f, type: 3}
+  m_Script: {fileID: 11500000, guid: a735a4d77b7e67a4eb1d2bbf610a360e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  letraCPlace: {fileID: 1969887989}
+  letraPlace: {fileID: 1969887989}
+  collider_2D: {fileID: 920373139}
+  dropSound: {fileID: 5136316586699202953, guid: 1f2360444f406494480d56bfefb6bcec, type: 3}
 --- !u!61 &920373139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17425,7 +17427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &930422583
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17644,6 +17646,7 @@ MonoBehaviour:
   MessageTextRegister: {fileID: 466934090}
   MenuLevels: {fileID: 1200593140}
   MenuLogin: {fileID: 1356939973}
+  levelsInstructionSound: {fileID: 8412866332309583500, guid: 29f1637e4eb8ecc4e87fa25f8770f303, type: 3}
 --- !u!4 &944453642
 Transform:
   m_ObjectHideFlags: 0
@@ -17696,6 +17699,7 @@ MonoBehaviour:
   PasswordInputLogin: {fileID: 176596506}
   MenuLevels: {fileID: 1200593140}
   CanvasLevel1: {fileID: 2017430218}
+  level1InstructionSound: {fileID: 1784781624617868245, guid: 4e68fd40dd3d1e34a8981c4535e6a38e, type: 3}
   CanvasLevel2: {fileID: 1890945840}
   CanvasLevel3: {fileID: 1720720}
   CanvasLevel4: {fileID: 806468579}
@@ -25735,6 +25739,7 @@ MonoBehaviour:
   userNameInput: {fileID: 1622720107}
   passwordInput: {fileID: 176596506}
   loginButton: {fileID: 426921139}
+  startInstructionSound: {fileID: 5474418126602487948, guid: 001aceced13c7c44ea143feb756601c6, type: 3}
 --- !u!1 &1359632563
 GameObject:
   m_ObjectHideFlags: 0
@@ -28951,10 +28956,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1532608162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a860d980de51b241ba721d8eb1504de, type: 3}
+  m_Script: {fileID: 11500000, guid: a735a4d77b7e67a4eb1d2bbf610a360e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  letraBPlace: {fileID: 1568257010}
+  letraPlace: {fileID: 1568257010}
+  collider_2D: {fileID: 1532608165}
+  dropSound: {fileID: 279298826009428993, guid: a9b088903da68034bb05754a92c58a1b, type: 3}
 --- !u!61 &1532608165
 BoxCollider2D:
   m_ObjectHideFlags: 0

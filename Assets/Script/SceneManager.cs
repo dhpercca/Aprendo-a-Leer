@@ -20,6 +20,7 @@ public class SceneManager : MonoBehaviour
     public InputField PasswordInputLogin;
     [SerializeField] private GameObject MenuLevels      = null;
     [SerializeField] private GameObject CanvasLevel1      = null;
+    public GameObject level1InstructionSound;
     [SerializeField] private GameObject CanvasLevel2      = null;
     [SerializeField] private GameObject CanvasLevel3      = null;
     [SerializeField] private GameObject CanvasLevel4      = null;
@@ -68,7 +69,8 @@ public class SceneManager : MonoBehaviour
         }*/
         aleatorio = Random.Range(0, objectsToInstantiate.Length);
         //Debug.Log(aleatorio);        
-        objectsToInstantiate[aleatorio].SetActive(true);           
+        objectsToInstantiate[aleatorio].SetActive(true); 
+        Instantiate(level1InstructionSound);          
     }
 
     public void ShowCanvasLevel2(){

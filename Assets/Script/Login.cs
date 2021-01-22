@@ -7,7 +7,8 @@ public class Login : MonoBehaviour
 {
     public InputField userNameInput;
     public InputField passwordInput;
-    public Button loginButton;    
+    public Button loginButton;
+    public GameObject startInstructionSound;    
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +18,6 @@ public class Login : MonoBehaviour
            userNameInput.text = "";
            passwordInput.text = "";               
        });
+       Instantiate(startInstructionSound);
     }
 }

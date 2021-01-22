@@ -22,8 +22,6 @@ public class H : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);            
             Vector2 position1 = transform.position;
-            //MoveObject.move(locked, deltaX, deltaY, letraAPlace, initialPosition, touch, touchPos, collider_2D, position1); 
-            MoveObject.move();
             switch(touch.phase)
             {
                 case TouchPhase.Began:
